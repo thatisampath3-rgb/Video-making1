@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: svsc-automatic-video-creator
+    runtime: python
+    buildCommand: apt-get update && apt-get install -y ffmpeg fonts-noto-core fonts-noto-extra && pip install -r requirements.txt
+    startCommand: gunicorn app:app --workers 1 --threads 2 --timeout 600
+    plan: free
